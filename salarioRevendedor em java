@@ -1,0 +1,130 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
+ */
+package salariorevendedor;
+
+import javax.swing.JOptionPane;
+
+/**
+ *
+ * @author felipe
+ */
+public class SalarioRevendedor {
+
+    public static void main(String[] args) {
+   
+        /*Uma revendedora de carros usados paga a seus 
+        funcionários vendedores um salário fixo por mês,
+        mais uma comissão também fixa para cada carro vendido 
+        e mais 5% do valor das vendas por ele efetuadas. 
+        Escrever um algoritmo que leia o número de carros por ele vendidos, 
+        o valor total de suas vendas, o salário fixo e o valor que ele recebe por carro vendido.
+        Calcule e escreva o salário final do vendedor.*/
+        
+        
+        
+        String nome = JOptionPane.showInputDialog(null, "Informe seu nome: ");
+        
+        
+        
+        boolean salarioInvalido = true;
+        float salario = 0;
+        int carros = 0;
+        boolean carrosInvalido = true;
+        float vendas = 0;
+        boolean vendasInvalido = true;
+        
+        
+        while(carrosInvalido){
+         
+            String inputCarros = JOptionPane.showInputDialog(null, "Quantos veículos foram vendidos no mês? ");
+        
+            try {
+            
+                carros = Integer.parseInt(inputCarros);
+                
+                if (carros < 0){
+                
+                    JOptionPane.showMessageDialog(null,"Quantidade de veículos inválida!", "ERRO", JOptionPane.ERROR_MESSAGE);
+                
+                }else {
+                
+                carrosInvalido = false;    
+                    
+                }
+                
+            }catch (NumberFormatException e){
+                
+                 JOptionPane.showMessageDialog(null,"Quantidade de veículos inválida!", "ERRO", JOptionPane.ERROR_MESSAGE);
+                
+            }
+        }
+        
+        while(salarioInvalido){
+        
+            String inputSalario = JOptionPane.showInputDialog("Informe o salário fixo: ");
+            
+            try {
+                    salario = Float.parseFloat(inputSalario);
+                    
+                    if (salario < 0){
+                    
+                        JOptionPane.showMessageDialog(null,"Salario Inválido!!!", "ERRO", JOptionPane.ERROR_MESSAGE);
+                    
+                    }else{
+                    
+                        salarioInvalido = false;
+                   
+                    }
+                }catch (NumberFormatException e){
+                
+                    JOptionPane.showMessageDialog(null,"Salario Inválido!!!", "ERRO", JOptionPane.ERROR_MESSAGE);
+               
+                }
+        }
+            
+        
+        
+      
+        
+        while(vendasInvalido){
+       
+            String inputVendas = JOptionPane.showInputDialog("Informe o valor total de vendas: ");
+        
+            try{
+            
+                vendas = Float.parseFloat(inputVendas);
+                
+                if(vendas < 0){
+                
+                    JOptionPane.showMessageDialog(null, "Valor inválido!!!", "ERRO", JOptionPane.ERROR_MESSAGE);
+                                      
+                }else {
+                
+                    vendasInvalido = false;
+                    
+                }
+            } catch(NumberFormatException e){
+            
+                JOptionPane.showMessageDialog(null,"Valor inválido!!!", "ERRO",JOptionPane.ERROR_MESSAGE);
+                
+            }
+        }
+        
+        Float comissao = salario + (0.05f * vendas);
+        
+        String formatsalario = String.format("%.2f", salario);
+        String formatvendas = String.format("%.2f", vendas);
+        String formatcomissao = String.format("%.2f", comissao);
+        
+        JOptionPane.showMessageDialog(null, "Funcionário: " + nome
+        + "\nQuantidade de veículos vendidos: " + carros
+        + "\nSalário fixo: R$ " + formatsalario
+        + "\nValor total de vendas: R$ " + formatvendas
+        + "\nSalário final (+ comissão): R$ " + formatcomissao);
+              
+        }
+    
+}
+
