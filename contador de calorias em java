@@ -1,0 +1,72 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
+ */
+package caloriasrefeicao;
+
+import javax.swing.JOptionPane;
+
+/**
+ *
+ * @author felipe
+ */
+public class CaloriasRefeicao {
+    public static void main(String[] args) {
+        
+    
+    String[] prato = {"Vegetariano (180 cal)", "Peixe (230 cal)", "Frango (250 cal)", "Carne (350 cal)"};
+    String[] sobremesa = {"Abacaxi (75 cal)", "Sorvete Diet(110 cal)", "Mouse Diet (170 cal)", "Mouse Chocolate (200 cal)"};
+    String[] bebida = {"Chá (20 cal)", "Suco de Laranja (70 cal)", "Suco de Melão (100 cal)", "Refrigerante Diet (65 cal)"};
+    
+    int calorias = 0;
+   
+        int opcaoPrato = JOptionPane.showOptionDialog(null, "Escolha um prato:",
+                "MENU", JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE, 
+                null, prato, prato[0]);
+        
+        switch (opcaoPrato) {
+            case 0 -> calorias = calorias + 180;
+            case 1 -> calorias = calorias + 230;
+            case 2 -> calorias = calorias + 250;
+            case 3 -> calorias = calorias + 350;
+            default -> {
+            }
+        }
+        
+        
+        
+        int opcaoSobremesa = JOptionPane.showOptionDialog(null, "Escolha uma sobremesa:",
+                "MENU", JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE, 
+                null, sobremesa, sobremesa[0]);
+        
+        switch (opcaoSobremesa) {
+            case 0 -> calorias = calorias + 75;
+            case 1 -> calorias = calorias + 110;
+            case 2 -> calorias = calorias + 170;
+            case 3 -> calorias = calorias + 200;
+            default -> {
+            }
+        }
+        
+        int opcaoBebida = JOptionPane.showOptionDialog(null, "Escolha uma bebida:",
+                "MENU", JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE, 
+                null, bebida, bebida[0]);
+      
+        switch (opcaoBebida) {
+            case 0 -> calorias = calorias + 20;
+            case 1 -> calorias = calorias + 70;
+            case 2 -> calorias = calorias + 100;
+            case 3 -> calorias = calorias + 65;
+            default -> {
+            }
+        }
+        
+        
+        JOptionPane.showMessageDialog(null, """
+                                            A quantidade de calorias ingerida foi:
+                                                                 """ 
+                + calorias + " cal");
+          
+    }
+  }
+
